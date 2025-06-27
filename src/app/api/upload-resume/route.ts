@@ -250,7 +250,7 @@ export async function POST(request: NextRequest) {
     const extractedText = await extractTextFromPDFBuffer(buffer)
 
     // Create uploads directory and save file for record keeping
-    const uploadsDir = path.join(process.cwd(), "uploads")
+    const uploadsDir = "/tmp/uploads"
     if (!existsSync(uploadsDir)) {
       await mkdir(uploadsDir, { recursive: true })
     }
@@ -259,6 +259,7 @@ export async function POST(request: NextRequest) {
     const fileName = `${fileId}-${file.name}`
     const filePath = path.join(uploadsDir, fileName)
     await writeFile(filePath, buffer)
+
 
     // Generate insights with filename context
     const insights = await generateInsights(extractedText, file.name)
