@@ -6,7 +6,7 @@ import path from "path"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getInsights(): Promise<any[]> {
-  const dbPath = path.join(process.cwd(), "data", "insights.json")
+  const dbPath = path.join("/tmp", "data", "insights.json")
 
   if (!existsSync(dbPath)) {
     return []

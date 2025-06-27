@@ -206,7 +206,7 @@ function isCommonWord(word: string): boolean {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function saveInsight(insight: any): Promise<void> {
-  const dataDir = path.join(process.cwd(), "data")
+  const dataDir = path.join("/tmp", "data")
   const dbPath = path.join(dataDir, "insights.json")
 
   if (!existsSync(dataDir)) {
